@@ -70,8 +70,6 @@ function filterCharactersByHouse(house) {
 
 // fonctionne 
 
-const urlParams = new URLSearchParams(window.location.search);
-const characterId = urlParams.get('characterId');
 
 fetch(`https://hp-api.onrender.com/api/characters/${characterId}`)
   .then(response => response.json())
@@ -85,3 +83,22 @@ fetch(`https://hp-api.onrender.com/api/characters/${characterId}`)
     `;
     document.getElementById('character-details').innerHTML = characterDetailsHTML;
   })
+
+  // fonctionne pas
+
+
+  fetch(`https://hp-api.onrender.com/api/characters/${characterId}`)
+  .then(response => response.json())
+  .then(characterData => {
+    // Populate the HTML elements with the character data
+    const characterDetailsHTML = `
+      <h1 id="character-name">${characterData.name}</h1>
+      <p id="character-house">House: ${characterData.house}</p>
+      <p id="character-age">Age: ${characterData.age}</p>
+      <p id="character-species">Species: ${characterData.species}</p>
+      <img id="character-image" src="${characterData.image}" alt="${characterData.name}" />
+    `;
+    document.getElementById('character-details').innerHTML = characterDetailsHTML;
+
+
+    // fonctionne pas
