@@ -101,6 +101,11 @@ footer p {
   display: none;
 }
 
+.houses img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .houses {
   display: flex;
   justify-content: space-around;
@@ -143,6 +148,11 @@ footer p {
 .characters p {
   text-align: center;
   color: var(--Gold, #b99049);
+}
+
+.characters img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* PAGE PERSO */
@@ -209,6 +219,31 @@ header ul {
     flex-direction: column;
     align-content: space-around;
   }
+}
+
+.characters img[src*="cedric"] {
+  border-color: var(--Hufflepuff, #e1b50c);
+}
+.characters img[src*="cho"] {
+  border-color: var(--Ravenclaw, #078cb1);
+}
+.characters img[src*="draco"] {
+  border-color: var(--Slytherin, #0cbc21);
+}
+.characters img[src*="harry"] {
+  border-color: var(--Gryffindor, #c71919);
+}
+.characters img[src*="hermione"] {
+  border-color: var(--Gryffindor, #c71919);
+}
+.characters img[src*="mcgonagall"] {
+  border-color: var(--Gryffindor, #c71919);
+}
+.characters img[src*="ron"] {
+  border-color: var(--Gryffindor, #c71919);
+}
+.characters img[src*="snape"] {
+  border-color: var(--Slytherin, #0cbc21);
 }
 
 /*# sourceMappingURL=style.css.map */
