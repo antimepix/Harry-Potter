@@ -8,7 +8,6 @@ fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
     charactersData = data.slice(0, 12).map(character => {
-      // Ajouter la propriété house à chaque personnage
       if (character.name === 'Harry Potter') {
         character.house = 'gryffindor';
       } else if (character.name === 'Draco Malfoy') {
@@ -42,7 +41,6 @@ fetch(apiUrl)
     });
     renderCharacters(charactersData);
   })
-  .catch(error => console.error('Error fetching data:', error));
 
 houseImages.forEach(image => {
   image.addEventListener('click', event => {
@@ -51,16 +49,10 @@ houseImages.forEach(image => {
   });
 });
 
-
-function filterCharactersByHouse(house) {
-  const filteredCharacters = charactersData.filter(character => character.house === house);
-  renderCharacters(filteredCharacters);
-}
-
 function renderCharacters(characters) {
-    charactersContainer.innerHTML = ''; // Vider le conteneur
+    charactersContainer.innerHTML = '';
     characters.forEach(character => {
-      const houseClass = character.house.toLowerCase(); // Convertir le nom de la maison en minuscules pour utiliser comme classe
+      const houseClass = character.house.toLowerCase();
       const characterHTML = `
         <a class="character-link ${houseClass}" href="?character=${character.name}">
           <img src="${character.image}" alt="${character.name}" />
@@ -70,3 +62,26 @@ function renderCharacters(characters) {
       charactersContainer.innerHTML += characterHTML;
     });
   }
+
+function filterCharactersByHouse(house) {
+  const filteredCharacters = charactersData.filter(character => character.house === house);
+  renderCharacters(filteredCharacters);
+}
+
+// fonctionne 
+
+const urlParams = new URLSearchParams(window.location.search);
+const characterId = urlParams.get('characterId');
+
+fetch(`https://hp-api.onrender.com/api/characters/${characterId}`)
+  .then(response => response.json())
+  .then(characterData => {
+    // ne pas toucher à ça
+    const characterDetailsHTML = `
+      <h1>${characterData.name}</h1>
+      <p>House: ${characterData.house}</p>
+      <p>Age: ${characterData.age}</p>
+      <!-- Add more details here -->
+    `;
+    document.getElementById('character-details').innerHTML = characterDetailsHTML;
+  })
