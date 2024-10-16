@@ -221,29 +221,39 @@ header ul {
   }
 }
 
-.characters img[src*="cedric"] {
-  border-color: var(--Hufflepuff, #e1b50c);
-}
-.characters img[src*="cho"] {
-  border-color: var(--Ravenclaw, #078cb1);
-}
-.characters img[src*="draco"] {
-  border-color: var(--Slytherin, #0cbc21);
-}
-.characters img[src*="harry"] {
-  border-color: var(--Gryffindor, #c71919);
-}
-.characters img[src*="hermione"] {
-  border-color: var(--Gryffindor, #c71919);
-}
-.characters img[src*="mcgonagall"] {
-  border-color: var(--Gryffindor, #c71919);
-}
-.characters img[src*="ron"] {
-  border-color: var(--Gryffindor, #c71919);
-}
-.characters img[src*="snape"] {
-  border-color: var(--Slytherin, #0cbc21);
+.character-link {
+  transition: background-color 0.3s ease;
 }
 
+.gryffindor:hover {
+  background-color: #b51010;
+}
+
+.slytherin:hover {
+  background-color: #3a6e3a; 
+}
+
+.ravenclaw:hover {
+  background-color: #a7b3e0;
+}
+
+.hufflepuff:hover {
+  background-color: #f7d67a;
+}
+
+.gryffindor img {
+  border-color :#b51010
+}
+
+.slytherin img {
+  border-color :#3a6e3a
+}
+
+.ravenclaw img {
+  border-color :#a7b3e0
+}
+
+.hufflepuff img {
+  border-color :#f7d67a
+}
 /*# sourceMappingURL=style.css.map */
